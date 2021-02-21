@@ -14,7 +14,7 @@ export const SearchCity = () => {
   return (
     <Space direction="vertical">
       <Search
-        placeholder="input search text"
+        placeholder="input city name"
         allowClear
         enterButton="Search"
         size="large"
@@ -23,5 +23,3 @@ export const SearchCity = () => {
     </Space>
   );
 };
-
-

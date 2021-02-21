@@ -1,0 +1,23 @@
+@import "~antd/dist/antd.css";
+
+.layout {
+  text-align: center;
+  padding: 70px 0px;
+}
+
+.header {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1890ff;
+}
+
+h1 {
+  color: aliceblue;
+}
+
+.chartContainer {
+  padding: 30px;
+  margin: 0 auto;
+}

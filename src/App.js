@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Empty, Spin } from "antd";
+import { useSelector } from "react-redux";
+import { SearchCity } from "./components/SearchCity";
+import { WeatherChart } from "./components/WeatherChart";
+import "./styles/main.css";
 
 function App() {
+  const { data, loading, success } = useSelector((state) => ({
+    data: state.data,
+    loading: state.getData.loading,
+    success: state.getData.success,
+  }));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className="header">
+        <h1>City Weathers</h1>
       </header>
-    </div>
+      <div className="layout">
+        <SearchCity />
+        <hr />
+        <div className="chartContainer">
+          {loading && <Spin tip="Loading..."></Spin>}
+          {data.cod < "400" && success && <WeatherChart />}
+          {data.cod > "400" && <Empty />}
+        </div>
+      </div>
+    </>
   );
 }
 
